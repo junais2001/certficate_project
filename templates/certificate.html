@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Course Completion Certificate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/certificate.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+      
+
+    <div class="certificate-border">
+        <div class="certificate-content">
+            <div class="certificate-header">
+                <img src="{{ url_for('static', filename='images/python1.png') }}" alt="Python Logo" class="logo">
+                <h1>Python Course Completion Certificate</h1>
+            </div>
+            <p class="certificate-text">This is to certify that</p>
+            <h2 class="user-name">{{ user['name'] }}</h2>
+            <p class="certificate-text">has successfully completed the Python Course.</p>
+            <div class="user-info">
+                <p><strong>ID:</strong> {{ user['id'] }}</p>
+                <div class="user-picture">
+                    {% if picture %}
+                        <img src="{{ url_for('picture_route', picture_id=user['picture_id']) }}" alt="User Photo">
+                    {% else %}
+                        <p>No Picture Available</p>
+                    {% endif %}
+                </div>
+            </div>
+            <p class="completion-text">Congratulations on your achievement!</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Institute Logo" class="institute-logo">
+    </div>
+</body>
+</html>

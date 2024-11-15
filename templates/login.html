@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <!-- Flash Message Section at the Top of the Page  using jinja code for this -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+  
+
+    
+    <!-- Main Container -->
+     
+    <div class="container">
+        <div class="form-container">
+            <h2>Student Login</h2>
+            <form id="loginForm" class="form" method="post" action="/login">
+                
+                <input type="text" id="loginUsername"   placeholder="User Name"   name="name" required>
+                
+                
+                <input type="text" id="loginId" placeholder="Student ID"  name="login_id" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            <p class="register-link">
+                Don’t have an account? <a href="{{ url_for('register') }}">Register your id </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

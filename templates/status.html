@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/status.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="form-container">
+            <h2>Course Completion Status</h2>
+            <form method="post" action="/status">
+                <label for="course_completed">Did you complete the course?</label>
+                <select id="course_completed" name="course_completed" required>
+                    <option value="Yes"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="assignment_completed">Did you complete all assignment?</label>
+                <select id="assignment_completed" name="assignment_completed" required>
+                    <option value="Yes"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="exam_completed">Did you pass all exams?</label>
+                <select id="exam_completed" name="exam_completed" required>
+                    <option value="Yes"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

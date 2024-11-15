@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form id="registrationForm" class="form" method="post" action="/register" enctype="multipart/form-data">
+                <label for="name">User Name</label>
+                <input type="text" id="name" placeholder="User Name" name="name" required>
+            
+                <label for="id">Student ID</label>
+                <input type="text" id="id" placeholder="Student ID"  name="id" required>
+            
+                <label for="course">Course Taken</label>
+                <input type="text" id="course"  placeholder="Course Joined" name="course" required>
+
+                <label for="picture">Profile Picture</label>
+                <input type="file" id="picture" name="picture" accept="image/*" required>
+            
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
